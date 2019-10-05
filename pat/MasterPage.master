@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!doctype html>
+<html lang="en">
+<head runat="server">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="css/StyleSheet.css" rel="stylesheet" />
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="css/navbar-top.css" rel="stylesheet" />
+	<link href="css/product.css" rel="stylesheet" />
+	<title></title>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body style="background-color: #808080">
+	<form id="form1" runat="server">
+
+		<nav class="site-header sticky-top">
+			<div style="vertical-align: middle; padding: 0 100px" class=" container-fluid d-flex flex-column flex-md-row justify-content-between">
+				<a class="py-2 nav-a-margins" style="font-weight: 800" href="HomePage.aspx">
+					<h3 style="color: #fff; line-height: 41px">PAT</h3>
+				</a>
+				<a class="collapse navbar-collapse " style="line-height: 46px" id="navbarCollapse">
+					<ul class="nav mr-auto" style="line-height: 46px">
+						<li class="nav-item active">
+							<a class="nav-link" href="HomePage.aspx" style="color: #000000">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle " id="dropdown1" style="color: #000000" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Course</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown07">
+								<a class="dropdown-item" href="https://www.newcastle.edu.au/__data/assets/pdf_file/0019/315226/B_Info_Tech_11497_2019.pdf" style="color: #000000">Course Plan</a>
+								<a class="dropdown-item" href="MyCourses.aspx" style="color: #000000">My Courses</a>
+								<%--<a class="dropdown-item" href="#" style="color:#000000">Others</a>--%>
+							</div>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#" style="color: #000000">About us</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#" style="color: #000000">Contact</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#" style="color: #000000">Search</a>
+						</li>
+					</ul>
+				</a>
+				<div class="d-flex flex-column flex-md-row">
+					<% if ((Users)Session["user"] != null)
+						{ %>
+					<ul class="navbar-nav mr-auto" style="line-height: 44px">
+						<li class="nav-item dropdown">
+							<asp:Label ID="lblUser" class="nav-link dropdown-toggle py-2 nav-a-margin d-none d-md-inline-block align-self" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="font-size: 20px; color: #0094ff" runat="server" Text=""></asp:Label>
+							<div class="dropdown-menu" aria-labelledby="dropdown07">
+								<a class="dropdown-item" id="btnInfo" href="UserInformationPage.aspx">User Information</a>
+								<a class="dropdown-item" id="btnCart" href="ShoppingCartPage.aspx">Shopping Cart</a>
+							</div>
+						</li>
+					</ul>
+					<% } %>
+				</div>
+				<div class="d-flex flex-column flex-md-row">
+					<ul class="navbar-nav mr-auto" style="line-height: 44px">
+						<li class="nav-item">
+	///						<%--<asp:LinkButton ID="btnLogin" runat="server" class="py-2 nav-a-margin d-none d-md-inline-block align-self-center" OnClick="btnLogin_Click" Style="font-size: 20px; color: #808080">Login</asp:LinkButton>--%>
+						</li>
+					</ul>
+				</div>
+
+				</a>
+			</div>
+		</nav>
+		<div class="text-center">
+
+			<div class="container">
+				<!-- Content here -->
+			</div>
+			<div style="height: 120vh">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>
+		</div>
+	</form>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
